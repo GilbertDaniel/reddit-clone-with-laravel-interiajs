@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CommutityStoreRequest extends FormRequest
+class CommunityStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class CommutityStoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class CommutityStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required', 'unique:communities'],
+            'description' => ['required', 'min:5']
         ];
     }
 }
