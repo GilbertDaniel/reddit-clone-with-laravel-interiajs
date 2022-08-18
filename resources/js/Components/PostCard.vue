@@ -28,7 +28,7 @@
         </div>
       </div>
       <Link
-        href=""
+        :href="route('frontend.communities.posts.show', [community, post.slug])"
       >
         <h5
           class="
@@ -50,7 +50,9 @@
       <div class="flex m-2 p-2">
         <p class="mr-4 p-2">Comments({{ post.comments_count }})</p>
         <Link
-          href=""
+          :href="
+            route('frontend.communities.posts.show', [community, post.slug])
+          "
           class="
             inline-flex
             items-center
