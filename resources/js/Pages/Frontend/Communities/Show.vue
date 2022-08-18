@@ -13,13 +13,43 @@
         >
       </div>
     </template>
+    <section class="flex md:flex-row m-2 p-2">
+      <div class="w-8/12">
+        <PostCard
+          v-for="post in posts.data"
+          :post="post"
+          :community="community.slug"
+          :key="post.id"
+        />
+
+      </div>
+      <div class="w-4/12 p-4">
+        <div>
+          <h2
+            class="
+              font-semibold
+              text-lg
+              p-6
+              bg-indigo-700
+              rounded-t-lg
+              text-white
+            "
+          >
+            About {{ community.name }}
+          </h2>
+          <p class="bg-white p-4 rounded-b-lg">{{ community.description }}</p>
+        </div>
+      </div>
+    </section>
   </guest-layout>
 </template>
 
 <script setup>
 import GuestLayout from "@/Layouts/Guest.vue";
 import { Link } from "@inertiajs/inertia-vue3";
+import PostCard from "@/Components/PostCard.vue";
 defineProps({
   community: Object(),
+  posts: Object(),
 });
 </script>
