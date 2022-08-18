@@ -59,7 +59,7 @@ class CommunityController extends Controller
         //     'username' => $post->user->username,
         // ]);
 
-        $posts = CommunityPostResource::collection($community->posts()->paginate(12));
+        $posts = CommunityPostResource::collection($community->posts()->with('user')->paginate(12));
         return Inertia::render('Frontend/Communities/Show', compact('community', 'posts'));
     }
 

@@ -21,7 +21,9 @@
           :community="community.slug"
           :key="post.id"
         />
-
+        <div class="mt-4 p-2">
+          <Pagination :links="posts.meta.links" />
+        </div>
       </div>
       <div class="w-4/12 p-4">
         <div>
@@ -48,6 +50,7 @@
 import GuestLayout from "@/Layouts/Guest.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 import PostCard from "@/Components/PostCard.vue";
+import Pagination from "@/Components/Pagination.vue";
 defineProps({
   community: Object(),
   posts: Object(),
